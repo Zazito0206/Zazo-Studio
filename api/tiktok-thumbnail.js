@@ -1,4 +1,4 @@
-export default async function handler(request) {
+export default { async fetch(request) {
   const requestUrl = new URL(request.url);
   if (request.method !== 'GET') {
     return Response.json({ error: 'Método no permitido.' }, { status: 405, headers: { Allow: 'GET' } });
@@ -40,4 +40,4 @@ export default async function handler(request) {
   } catch {
     return Response.json({ error: 'No se pudo obtener la miniatura de TikTok.' }, { status: 502 });
   }
-}
+} };
